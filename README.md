@@ -20,6 +20,16 @@ This projects code can be used in any project using laravel/ui package.
 
 As Documentation Suggests.
 
+### Setting up user/admin
+
+Run this command to make a admins table migration :
+
+`$ php artisan make:migration create_admins_table --create=admins`
+
+And Fill it like the users table.Then Create an admin model.
+
+For Creaating admin model the simplest way is to duplicate User model and change the name and fillables.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
