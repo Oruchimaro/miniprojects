@@ -30,6 +30,21 @@ And Fill it like the users table.Then Create an admin model.
 
 For Creaating admin model the simplest way is to duplicate User model and change the name and fillables.
 
+### Configure new provider for guard
+
+In config/auth.php file add a new provider for admins in providers array.
+then use that array and define a guard for admin, then add a password reset configuration for admins if needed.
+
+Now you can define the default guard for Admin model in it.
+
+### Add View and Controller For Admin
+
+Copy HomeController to UserController and AdminController, edit some code in them.
+Then add the routes for this to web.php file
+Finally for testing goto /admin to see the result (you will be able to see admin dashboard).
+
+Now if you add the guard to AdminController it will be protected against users.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

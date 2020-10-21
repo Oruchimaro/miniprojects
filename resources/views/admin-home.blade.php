@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">User Dashboard !</div>
+                <div class="card-header">Admin Dashboard !</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <p>You are Logged in as <strong>User</strong> </p>
+                    <p>You are Logged in as <strong>Admin</strong> </p>
                 </div>
             </div>
         </div>

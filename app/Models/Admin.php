@@ -12,6 +12,11 @@ class Admin extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * Define the default guard for admins
+     */
+    protected $guard = 'admin';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
