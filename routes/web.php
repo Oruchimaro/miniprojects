@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\Admin\AdminLoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [UserController::class, 'index'])->name('user.home');
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login.form');
+    Route::post('/login', [AdminLoginController::class, 'login'])->name('admin.login');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+});
