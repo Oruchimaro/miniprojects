@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use App\Traits\AuthenticatesAdmins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,6 @@ class AdminLoginController extends Controller
          * logged in as a user, because we are still a guest in the admin guard
          */
 
-        //$this->middleware('guest')->except('logout');
         $this->middleware('guest:admin')->except('logout');
     }
 

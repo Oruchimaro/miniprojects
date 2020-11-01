@@ -28,4 +28,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login.form');
     Route::post('/login', [AdminLoginController::class, 'login'])->name('admin.login');
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/soft-logout', [AdminController::class, 'softLogout'])->name('admin.soft-logout');
 });

@@ -25,4 +25,16 @@ class AdminController extends Controller
     {
         return view('admin-home');
     }
+
+    /**
+     * This logout is for admin that is also logged in as  a user
+     * and after logging out doesnt want logout of user too.
+     *
+     * @return void
+     */
+    public function softLogout()
+    {
+        auth()->guard('admin')->logout();
+        return redirect('/home');
+    }
 }

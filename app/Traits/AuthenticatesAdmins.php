@@ -168,6 +168,9 @@ trait AuthenticatesAdmins
     {
         $this->guard()->logout();
 
+        //IF we want to just logout from (admin or user ) we must get 
+        //rid of this serssion lines.
+        //these lines delete the sessions and logout of all accpounts 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
@@ -178,7 +181,7 @@ trait AuthenticatesAdmins
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/');
+            : redirect('/admin');
     }
 
     /**

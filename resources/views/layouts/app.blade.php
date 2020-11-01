@@ -64,7 +64,13 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    @if (auth()->user()->isAdmin())
+                                    <a class="dropdown-item" href="{{ route('admin.soft-logout') }}">
+                                        Soft {{ __('Logout') }}
+                                    </a>
+                                    @endif
                                 </div>
+                                    
                             </li>
                         @endguest
                     </ul>
