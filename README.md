@@ -45,6 +45,11 @@ Finally for testing goto /admin to see the result (you will be able to see admin
 
 Now if you add the guard to AdminController it will be protected against users.
 
+### Configure middlewares
+
+For correct redirects after authentication or correct login for specefic gurad
+we can configure Authenticate and RedirectIfAuthenticated middlewares.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
