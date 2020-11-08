@@ -50,6 +50,14 @@ Now if you add the guard to AdminController it will be protected against users.
 For correct redirects after authentication or correct login for specefic gurad
 we can configure Authenticate and RedirectIfAuthenticated middlewares.
 
+### Add Forgot Password and Reset Password Controllers and Views
+
+For maintaining a good UX we will add reset password functionality.
+for this we can create new controllers for them, then add the routes for them to web.php
+and create views for them, then create a new notification class and specify in admin model that reset password will use this notification class.
+finally setup mailserver to send emails and recive them .
+every things s done.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
