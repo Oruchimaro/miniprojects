@@ -117,14 +117,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets', // we will use the same reset password table for admins too
             'expire' => 10,
             'throttle' => 60,
         ],
-
     ],
 
     /*
