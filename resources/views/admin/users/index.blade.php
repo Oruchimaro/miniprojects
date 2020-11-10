@@ -14,9 +14,38 @@
                         </div>
                     @endif
 
-                    @foreach ($users as $user)
+                    
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Roles</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <th scope="row">{{ $user->id }}</th>
+                                        <th >{{ $user->name }}</th>
+                                        <th > {{ $user->email }}</th>
+                                        <th> {{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }} </th>
+                                        <th >
+                                            <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-primary">Edit</a>
+                                            <form action="{{ route('admin.users.destroy', $user) }}" method="POST" style="display:inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-warning">Delete</button>
+                                            </form>
+                                        </th>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                         {{ $user->name }} - {{ $user->email }}
-                    @endforeach
+                    
                 </div>
             </div>
         </div>
