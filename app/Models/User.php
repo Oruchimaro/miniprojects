@@ -42,12 +42,40 @@ class User extends Authenticatable
     ];
 
     /**
-     * undocumented function
-     *
+     * Roles relationship
+     * A user has many roles
      * @return void
      */
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Check if a user has any roles from the relation ship
+     *
+     * @return void
+     */
+    public function hasAnyRoles($roles)
+    {
+        if ($this->roles()->whereIn('name', $roles)->first()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * check if  a user has  a specific role
+     *
+     * @param string
+     * @return void
+     */
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
+            return true;
+        }
+        return false;
     }
 }

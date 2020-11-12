@@ -25,6 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Define a Gate to edit users
+        Gate::define('edit-users', function ($user) {
+            return $user->hasRole('admin');
+        });
+
+        Gate::define('delete-users', function ($user) {
+            return $user->hasRole('admin');
+        });
     }
 }
