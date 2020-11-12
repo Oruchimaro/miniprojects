@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <br></br>
+                    @can ('manage-users')
+                    <a href="{{ route('admin.users.index') }}" >Manage Users</a>
+                    @endcan
                 </div>
             </div>
         </div>

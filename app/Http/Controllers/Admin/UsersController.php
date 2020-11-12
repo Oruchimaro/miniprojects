@@ -41,7 +41,9 @@ class UsersController extends Controller
     {
         // use the gate to see if user can edit users ()
         if (Gate::denies('edit-users')) {
-            return redirect()->route('admin.users.index');
+            return redirect()
+                ->route('admin.users.index')
+                ->with(['error' => 'Not Authorized']);
         }
 
 
@@ -63,7 +65,8 @@ class UsersController extends Controller
     {
         $user->roles()->sync($request->roles); //sync is same as attach for multiple values
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')
+            ->with(['status' => 'Done']);
     }
 
     /**
@@ -76,12 +79,15 @@ class UsersController extends Controller
     {
         // use the gate to see if user can delete users 
         if (Gate::denies('delete-users')) {
-            return redirect()->route('admin.users.index');
+            return redirect()
+                ->route('admin.users.index')
+                ->with(['error' => 'Not Authorized']);
         }
 
         $user->roles()->detach();
         $user->delete();
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')
+            ->with(['status' => 'Done']);
     }
 }

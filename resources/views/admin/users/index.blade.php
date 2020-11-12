@@ -14,6 +14,11 @@
                         </div>
                     @endif
 
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     
                         <table class="table">
                             <thead>
@@ -32,13 +37,18 @@
                                         <th >{{ $user->name }}</th>
                                         <th > {{ $user->email }}</th>
                                         <th> {{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }} </th>
-                                        <th >
+                                        <th>
+                                            @can ('edit-users')
                                             <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-primary">Edit</a>
+                                            @endcan
+
+                                            @can ('delete-users')
                                             <form action="{{ route('admin.users.destroy', $user) }}" method="POST" style="display:inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-warning">Delete</button>
                                             </form>
+                                            @endcan
                                         </th>
                                     </tr>
                                 @endforeach

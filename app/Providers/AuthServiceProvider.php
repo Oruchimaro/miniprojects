@@ -25,6 +25,18 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        /**
+         * If we want to add a abilty to some suers we can change this section
+         * like if later in app we want user to see the edit section
+         * we can replace hasRole with hasAnyRoles 
+         *
+         **/
+
+        // Gate for managing users
+        Gate::define('manage-users', function ($user) {
+            return $user->hasAnyRoles(['admin', 'editor']);
+        });
+
         // Define a Gate to edit users
         Gate::define('edit-users', function ($user) {
             return $user->hasRole('admin');
