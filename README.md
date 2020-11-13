@@ -15,3 +15,5 @@ Each project is in its seprate branch for easier access.
 ## Projects List
 
     [*] multiauth
+
+    [*] Login/Register With Roles Managment
