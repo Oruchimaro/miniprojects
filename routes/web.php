@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = \App\Models\Product::sortable()->paginate(7);
+    return view('welcome', compact('products'));
 });
