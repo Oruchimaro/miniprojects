@@ -17,3 +17,5 @@ Each project is in its seprate branch for easier access.
     [*] multiauth
 
     [*] Login/Register With Roles Managment
+
+    [*] Column Sorting with Pagination
