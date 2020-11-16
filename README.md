@@ -9,13 +9,10 @@
 
 ## About This Project
 
-This project contains mini projects that are seprated into one repository.
-Each project is in its seprate branch for easier access.
+This is a simple multi language website using laravel
 
-## Projects List
+## Steps to do stuff
 
-    [*] multiauth
+    1) create a middleware for localization and add it to web middleware group
 
-    [*] Login/Register With Roles Managment
-
-    [*] Column Sorting with Pagination
+    $ php artisan make:middleware LocalizationMiddleware
