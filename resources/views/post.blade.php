@@ -50,21 +50,39 @@
             font-size: 2em;
             font-weight: bold;
         }
+        h3 {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
     </style>
 
 </head>
 
 <body>
 
+    
+    @lang ('en')
+    <h3>English</h3>
     <h1 class="title">
-        @if( app()->getLocale() == 'en' )
         {{ $post->title_en }}
-        @elseif ( app()->getLocale() == 'fa' )
-        {{ $post->title_fa }}
-        @elseif ( app()->getLocale() == 'fr' )
-        {{ $post->title_fr }}
-        @endif
     </h1>
+
+    @elselang ('fr')
+    <h3>French</h3>
+    <h1 class="title">
+        {{ $post->title_fr }}
+    </h1>
+
+    @elselang ('fa')
+    <h3>Farsi</h3>
+    <h1 class="title">
+        {{ $post->title_fa }}
+    </h1>
+
+    @endlang
     <a class="btn " href="{{ url('/') }}"> {{ __('messages.home') }} </a>
 
 </body>

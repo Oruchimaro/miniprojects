@@ -51,3 +51,6 @@ database with diffrent locales.
     $ php artisan make:migration post
 
     add schema for diffrent languages
+
+5)set up custom blade if/else statements in AppServericeProvider.php
+then use it in views.
