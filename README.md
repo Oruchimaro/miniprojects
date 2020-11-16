@@ -43,3 +43,11 @@ This is a simple multi language website using laravel
 
     ```HTML
         <html lang={{ app()->getLocale() }}>
+
+4)set up a migration for a post table with difrrent language inputs
+then add a record manually and use it for demonstration on how to use
+database with diffrent locales.
+
+    $ php artisan make:migration post
+
+    add schema for diffrent languages
