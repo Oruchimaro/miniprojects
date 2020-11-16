@@ -19,3 +19,5 @@ Each project is in its seprate branch for easier access.
     [*] Login/Register With Roles Managment
 
     [*] Column Sorting with Pagination
+
+    [*] Multi Language Setup with Database integration
