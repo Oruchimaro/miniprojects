@@ -10,7 +10,10 @@ At the end of this tutorial, you will be able to download or import excel & CSV 
 
 Generically, we will follow all the imperative that are needed to build a general laravel application. We will go from point a to b, something like creating or importing data to xls or CSV.</p>
 
-### Install Excel (maatwebsite) Pacakage
+<hr>
+
+## Install Excel (maatwebsite) Pacakage
+
 
 <p> Commonly, to complete our foundational work, we require a third-party package. Ideally, we are talking about the [Laravel-Excel](https://laravel-excel.com/) plugin by [Maatwebsite](https://github.com/Maatwebsite/Laravel-Excel). It provides the robust mechanism to deal with Excel exports and imports in Laravel. In response, It has got the immense love of artisan’s on GitHub.</p>
 
@@ -19,7 +22,9 @@ Run command to install the package.
 composer require maatwebsite/excel
 ```
 
-### Register Plugin’s Service in Providers & Aliases
+<hr>
+
+## Register Plugin’s Service in Providers & Aliases
 
 <p>You can have the following code placed inside the config/app.php file.</p>
 
@@ -48,7 +53,10 @@ php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
 <p>This will formulate a new config file as config/excel.php.</p>
 
 
-### Generate Fake Records, Migrate Table
+<hr>
+
+## Generate Fake Records, Migrate Table
+
 
 <p>Often, this step consists of two sub-steps. In the first one, we migrate the User table. Laravel comes with the User model and migration with default values, and we can use it and migrate to the database.</p>
 
@@ -68,7 +76,10 @@ exit
 
 
 
-### Construct Route
+<hr>
+
+## Construct Route
+
 
 <p>
 Usually, routing in laravel is the foundational mechanism that interprets the URI endpoint and conjugates it into parameters to shape which module or controller is associated.
@@ -88,7 +99,10 @@ Route::get('file-export', [UserController::class, 'fileExport'])->name('file-exp
 
 
 
-### Make Import Class
+<hr>
+
+## Make Import Class
+
 
 <p>
 The maatwebsite module offers an imperative method to develop an import class. Obviously, it should be used along with the laravel controller, and i believe you already know this has been the best way to generate a new import class.
@@ -129,7 +143,10 @@ class UsersImport implements ToModel
 
 
 
-### Construct Export Class
+<hr>
+
+## Construct Export Class
+
 
 <p>The maatwebsite module provides an essential method to construct an export class. Preferably, it needs to get along with the laravel controller, and i know it doesn’t sound vague.
 
@@ -164,7 +181,9 @@ class UsersExport implements FromCollection
 
 
 
-### Create and Prepare Controller
+<hr>
+
+## Create and Prepare Controller
 
 <p>
 Now, we have reached an essential step in this tutorial. We will evoke this step by creating a controller. Altogether all the logic goes in here to manage the import and export file such as Excel and CSV.
@@ -213,7 +232,10 @@ class UserController extends Controller
 }
 ```
 
-### Write Down Blade View
+<hr>
+
+## Write Down Blade View
+
 
 <p>Ultimately, we have reached the last step. In general, here we need to formulate the view for handling importing and exporting through the frontend.
 
@@ -262,7 +284,9 @@ http://localhost:8000/file-import-export
 ```
 
 
-### Summary
+<hr>
+
+## Summary
 
 <p> So this was it, we have completed the tutorial. In this tutorial, we threw light on importing-exporting and downloading the Excel & CSV file from the database with the **maatwebsite/excel** composer package.
 
