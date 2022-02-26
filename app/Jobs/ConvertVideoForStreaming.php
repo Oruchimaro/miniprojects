@@ -2,15 +2,18 @@
 
 namespace App\Jobs;
 
-use App\Models\Video;
+use FFMpeg;
 use Carbon\Carbon;
+use App\Models\Video;
+use FFMpeg\Coordinate\Dimension;
+use FFMpeg\Format\Video\X264;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use PhpOffice\PhpSpreadsheet\Helper\Dimension;
 
 class ConvertVideoForStreaming implements ShouldQueue
 {

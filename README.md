@@ -307,6 +307,17 @@ Now create a  ``ConvertVideoForStreaming`` job which will be dispatched after vi
 ```
 
 ```PHP
+    use FFMpeg;
+    use App\Video;
+    use Carbon\Carbon;
+    use FFMpeg\Coordinate\Dimension;
+    use FFMpeg\Format\Video\X264;
+    use Illuminate\Bus\Queueable;
+    use Illuminate\Queue\SerializesModels;
+    use Illuminate\Queue\InteractsWithQueue;
+    use Illuminate\Contracts\Queue\ShouldQueue;
+    use Illuminate\Foundation\Bus\Dispatchable;
+    
     class ConvertVideoForStreaming implements ShouldQueue
     {
         use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
