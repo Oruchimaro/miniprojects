@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
+use Illuminate\Support\Str;
+use App\Jobs\ConvertVideoForStreaming;
 use App\Http\Requests\StoreVideoRequest;
 
 class VideoController extends Controller
@@ -37,7 +39,7 @@ class VideoController extends Controller
      */
     public function store(StoreVideoRequest $request)
     {
-        $path = str_random(16) . '.' . $request->video->getClientOriginalExtension();
+        $path = Str::random(16) . '.' . $request->video->getClientOriginalExtension();
 
         $request->video->storeAs('public', $path);
 
@@ -48,12 +50,9 @@ class VideoController extends Controller
             'title'         => $request->title,
         ]);
 
-        // ConvertVideoForStreaming::dispatch($video);
+        ConvertVideoForStreaming::dispatch($video);
 
-        return redirect('/uploader')
-            ->with(
-                'message',
-                'Your video will be available shortly after we process it'
-            );
+        return view('home')
+            ->with('msg', 'Your video will be available shortly after we process it');
     }
 }

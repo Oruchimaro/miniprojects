@@ -47,13 +47,13 @@ class ConvertVideoForStreaming implements ShouldQueue
             })->export()
             ->toDisk('public')
             ->inFormat($lowBitrateFormat)
-            ->save($converted_name);
+            ->save( 'original_' .$converted_name);
 
 
         $this->video->update([
             'converted_for_streaming_at' => Carbon::now(),
             'processed' => true,
-            'stream_path' => $converted_name
+            'stream_path' => 'original_' .$converted_name
         ]);
     }
 
