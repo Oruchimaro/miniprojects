@@ -23,3 +23,5 @@ Each project is in its seprate branch for easier access.
     [*] Multi Language Setup with Database integration
 
     [*] Excel and CSV File Export and Import
+
+    [*] Video Convert and transcribing with Laravel FFMPEG Package
