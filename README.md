@@ -6,6 +6,7 @@
 ## Content
 <span id="content"></span>
 <ul>
+<li><a href="#attention"> Your attention please </a></li>
 <li><a href="#create_video"> Create Video Model </a></li>
 <li><a href="#route"> Add the Routes </a></li>
 <li><a href="#controller"> Add Controller Methods</a></li>
@@ -28,15 +29,14 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
+## <span id="attention">Your attention please</span>
 
+This app requires a working **FFMpeg install** ([LINK](https://ffmpeg.org/download.html)). You will need both FFMpeg and FFProbe binaries to use it. Be sure that these binaries can be located with system PATH to get the benefit of the binary detection, otherwise you should have to explicitly give the binaries path on load.
+Also the required php version for this should be **8.1**, you can install and temporarily switch to it if needed.
 
+<br>
 
 
 
@@ -448,6 +448,7 @@ and run following command to **publish** package configuration files.
 If you’re running windows, you must *add ffmpeg binaries to the system* **PATH**. 
 If you don’t have access to that, you can define these environment variables in your .env file.
 
+In Linux we can find where these binaries are by running ``which ffmpeg`` and ``which ffprobe``
 
 ```ENV
     FFMPEG_BINARIES='PATH_TO_FFMPEG_BINARUES'
@@ -577,5 +578,14 @@ If you run into any issue or have any questions, leave a comment and I will try 
 
 <hr>
 
-Tutorial [LINK](https://quantizd.com/transcoding-videos-using-ffmpeg-and-laravel-queues/)
-Package [FFMPEG](https://github.com/protonemedia/laravel-ffmpeg)
+##### Tutorial :
+[LINK](https://quantizd.com/transcoding-videos-using-ffmpeg-and-laravel-queues/)<br>
+[Another Tutorial by package authors](https://protone.media/en/blog/how-to-use-ffmpeg-in-your-laravel-projects)<br>
+##### Packages: <br>
+[FFMPEG](https://github.com/protonemedia/laravel-ffmpeg)<br>
+[PHP FFMPEG](https://github.com/PHP-FFMpeg/PHP-FFMpeg)<br>
+
+
+##### Additional Resource :
+[Encrypted HLS](https://www.youtube.com/watch?v=WlbzWoAcez4&ab_channel=PascalBaljet) <br>
+[VideoJS with Laravel Mix](https://www.youtube.com/watch?v=nA1Jy8BPjys&ab_channel=PascalBaljet)
