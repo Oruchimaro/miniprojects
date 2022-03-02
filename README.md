@@ -578,3 +578,4 @@ If you run into any issue or have any questions, leave a comment and I will try 
 <hr>
 
 Tutorial [LINK](https://quantizd.com/transcoding-videos-using-ffmpeg-and-laravel-queues/)
+Package [FFMPEG](https://github.com/protonemedia/laravel-ffmpeg)
